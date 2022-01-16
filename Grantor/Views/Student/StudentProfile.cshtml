@@ -1,0 +1,185 @@
+﻿@model EntityLayer.Concrate.Student
+@{
+    ViewData["Title"] = "StudentProfile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container-xxl py-5 bg-primary hero-header">
+
+    <div class="row g-5 py-5">
+        <div class="col-12 text-center">
+
+        </div>
+    </div>
+
+</div>
+<div class="container-xxl py-5" style="margin-top:0px;">
+    <div class="container py-5 px-lg-5">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="text-center mb-5">Profil Sayfası</h1>
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="wow fadeInUp" data-wow-delay="0.3s">
+
+
+                    <form asp-action="StudentProfile" asp-controller="Student" method="post">
+                        <p class="text-danger">
+                           * Aşağıdaki tüm bilgileri eksiksiz şekilde güncellemediğiniz takdirde profiliniz bağışcılar tarafından görüntülenmeyecektir.<br />
+                             * Lütfen burs alabilmek için aşağıdaki bilgilerinizi eksiksiz olarak güncelleyin.
+                        </p>
+
+                        <div class="team-item bg-light rounded" style="width:50%;margin-left:auto;margin-right:auto;">
+                            <div class="text-center border-bottom p-4">
+                                <img class="img-fluid rounded-circle mb-4" src="@Model.Image" alt="">
+
+                            </div>
+                            <input type="hidden" name="CreateDate" value="@Model.CreateDate" />
+                        </div>
+                        <br />
+                        <div class="col-md-6" style="margin-left:auto;margin-right:auto;">
+                            <div style="margin-left:auto;margin-right:auto;">
+                                <label for="name">Profil Resmi</label>
+                                <input type="file" asp-for="Image" class="form-control" id="name" name="Image" placeholder="Profil Fotoğrafı">
+
+
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row g-3">
+                            @if (TempData["notification"] != null)
+                            {
+                                <script>
+                                    swal("Tebrikler!", "Bilgileriniz Başarıyla Güncellendi. Profiliniz Bağışcılara Görünür Hale Geldi. ", "success");
+                                </script>
+
+
+                            }
+
+                            <input type="hidden" asp-for="ID" />
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" asp-for="FirstName" class="form-control" id="name" name="FirstName" placeholder="Adınız">
+                                    <label for="name">Adınız</label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" asp-for="LastName" id="surname" name="LastName" placeholder="Soyadınız">
+                                    <label for="surname">Soyadınız</label>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" asp-for="Mail" id="email" name="Mail" placeholder="E-Posta Adresiniz">
+                                    <label for="email">E-Posta</label>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="tel" class="form-control" asp-for="Phone" id="email" name="Phone" placeholder="Telefon Numarası">
+                                    <label for="email">Telefon Numarası</label>
+
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="hidden" class="form-control" asp-for="Password" id="psw1" name="Password" placeholder="Şifreniz">
+
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" class="form-control" asp-for="BirthDate" id="" name="BirthDate" placeholder="Doğum Tarihi">
+                                    <label for="email">Doğum Tarihi</label>
+
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <select asp-for="Gender" class="form-control" name="Gender" id="gender">
+
+                                        <option value="NULL">-Cinsiyet Seçiniz-</option>
+                                        <option value="Erkek">Erkek</option>
+                                        <option value="Kadın">Kadın</option>
+
+                                    </select>
+
+                                </div>
+
+
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" asp-for="IBAN" id="" name="IBAN" placeholder="IBAN NO">
+                                    <label for="email">IBAN NO</label>
+
+                                </div>
+
+                            </div>
+                            <div class="col-6">
+                                <label>Şehir</label>
+                                <div class="form-floating">
+
+                                    <select asp-for="CityID" asp-items="@ViewBag.vlc" class="form-control" name="CityID">
+                                        <option>~ Şehir Seçiniz ~</option>
+                                    </select>
+                                </div>
+
+                            </div>      
+                            <div class="col-6">
+                                <label>Üniversite</label>
+                                <div class="form-floating">
+
+                                    <select asp-for="UniversityID" asp-items="@ViewBag.vlu" class="form-control" name="UniversityID">
+                                        <option>~ Üniversite Seçiniz ~</option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+
+
+
+
+
+
+
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Profili Güncelle</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        document.getElementById("psw1").onchange = validatePassword;
+        document.getElementById("psw2").onchange = validatePassword;
+    }
+
+    function validatePassword() {
+        var pass2 = document.getElementById("psw2").value;
+        var pass1 = document.getElementById("psw1").value;
+        if (pass1 != pass2)
+            document.getElementById("psw2").setCustomValidity("Şifreler Uyuşmuyor");
+        else
+            document.getElementById("psw2").setCustomValidity('');
+        //empty string means no validation error
+    }
+</script>

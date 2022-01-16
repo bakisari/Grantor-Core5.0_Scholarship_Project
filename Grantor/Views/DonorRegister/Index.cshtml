@@ -1,0 +1,102 @@
+﻿@model Donor
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container-xxl py-5 bg-primary hero-header">
+    <div class="container my-5 py-5 px-lg-5">
+        <div class="row g-5 py-5">
+            <div class="col-12 text-center">
+                <h1 class="text-white animated slideInDown">Kayıt</h1>
+                <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+               
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5" style="margin-top:0px;">
+    <div class="container py-5 px-lg-5">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="text-center mb-5">Bağışcı Kayıt Formu</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="wow fadeInUp" data-wow-delay="0.3s">
+                    <form asp-action="Index" asp-controller="DonorRegister">
+                        <div class="row g-3">
+                          
+                            @if (ViewBag.notification == true)
+                            {
+                                <script>
+                                    swal("Tebrikler!", "Başarıyla Kayıt Oldunuz ", "success");
+                                </script>
+
+
+                            }
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" name="DonorName" placeholder="Adınız /Kuruluş İsmi">
+                                    <label for="name">Ad-Soyad / Şirket İsmi</label>
+                                    <span asp-validation-for="DonorName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" name="DonorMail" placeholder="E-Posta Adresiniz">
+                                    <label for="email">E-Posta</label>
+                                    <span asp-validation-for="DonorMail" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="tel" class="form-control" id="email" name="DonorPhone" placeholder="Telefon Numaranız">
+                                    <label for="email">Telefon Numarası</label>
+                                    <span asp-validation-for="DonorPhone" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="psw1" name="DonorPassword" placeholder="Şifreniz">
+                                    <label for="psw1">Şifre</label>
+                                    <span asp-validation-for="DonorPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="psw2" placeholder="Şifreniz">
+                                    <label for="psw2">Şifre Tekrar</label>
+                                    <span asp-validation-for="DonorPassword" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Kayıt Ol</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        document.getElementById("psw1").onchange = validatePassword;
+        document.getElementById("psw2").onchange = validatePassword;
+    }
+
+    function validatePassword() {
+        var pass2 = document.getElementById("psw2").value;
+        var pass1 = document.getElementById("psw1").value;
+        if (pass1 != pass2)
+            document.getElementById("psw2").setCustomValidity("Şifreler Uyuşmuyor");
+        else
+            document.getElementById("psw2").setCustomValidity('');
+        //empty string means no validation error
+    }
+</script>

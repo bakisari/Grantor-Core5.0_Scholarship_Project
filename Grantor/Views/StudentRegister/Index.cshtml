@@ -1,0 +1,105 @@
+﻿@model Student
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container-xxl py-5 bg-primary hero-header">
+    <div class="container my-5 py-5 px-lg-5">
+        <div class="row g-5 py-5">
+            <div class="col-12 text-center">
+                <h1 class="text-white animated slideInDown">Kayıt</h1>
+                <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white" href="#">Anasayfa</a></li>
+
+                        <li class="breadcrumb-item text-white active" aria-current="page">Öğrenci Kayıt</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5" style="margin-top:0px;">
+    <div class="container py-5 px-lg-5">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="text-center mb-5">Öğrenci Kayıt Formu</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="wow fadeInUp" data-wow-delay="0.3s">
+                    <form asp-action="Index" asp-controller="StudentRegister">
+                        <div class="row g-3">
+                            @if (ViewBag.notification != null)
+                            {
+                                <script>
+                                    swal("Tebrikler!", "Başarıyla Kayıt Oldunuz ", "success");
+                                </script>
+
+
+                            }
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" name="FirstName" placeholder="Adınız">
+                                    <label for="name">Adınız</label>
+                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="surname" name="LastName" placeholder="Soyadınız">
+                                    <label for="surname">Soyadınız</label>
+                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" name="Mail" placeholder="E-Posta Adresiniz">
+                                    <label for="email">E-Posta</label>
+                                    <span asp-validation-for="Mail" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="psw1" name="Password" placeholder="Şifreniz">
+                                    <label for="psw1">Şifre</label>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="password" class="form-control" id="psw2"  placeholder="Şifreniz">
+                                    <label for="psw2">Şifre</label>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn btn-primary w-100 py-3" type="submit">Kayıt Ol</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    window.onload = function () {
+        document.getElementById("psw1").onchange = validatePassword;
+        document.getElementById("psw2").onchange = validatePassword;
+    }
+
+    function validatePassword() {
+        var pass2 = document.getElementById("psw2").value;
+        var pass1 = document.getElementById("psw1").value;
+        if (pass1 != pass2)
+            document.getElementById("psw2").setCustomValidity("Şifreler Uyuşmuyor");
+        else
+            document.getElementById("psw2").setCustomValidity('');
+        //empty string means no validation error
+    }
+    </script>

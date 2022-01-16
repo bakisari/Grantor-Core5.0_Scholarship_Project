@@ -1,0 +1,124 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<div class="container-xxl bg-primary hero-header">
+    <div class="container px-lg-5">
+        <div class="row g-5 align-items-end">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="text-white mb-4 animated slideInDown">Tüm Üniversite Öğrencilerine Burs Fırsatı!</h1>
+                <p class="text-white pb-3 animated slideInDown">GRANTOR, BURS ARAYAN ÖĞRENCİLERİN VE BURS VERMEK İSTEYEN KİŞİ VE KURULUŞLARIN BULUŞTUĞU TÜRKİYE'NİN TEK DİGİTAL BURS PLATFORMUDUR. SİZ DE GRANTOR ÜYESİ OLUN,BURS VERMEK İÇİN SİZLERİ BEKLEYEN BİNLERCE KİŞİ VE KURULUŞ SİZİ SEÇSİN.</p>
+                <a href="/StudentRegister/Index" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Öğrenci Kayıt</a>
+                <a href="/DonorRegister/Index" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Burs Veren Kayıt</a>
+            </div>
+            <div class="col-lg-6 text-center text-lg-start">
+                <img class="img-fluid animated zoomIn" src="~/scholarship/img/hero.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Navbar & Hero End -->
+<!-- Feature End -->
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title text-secondary">İstatistiklerimiz<span></span></p>
+                <h1 class="mb-5">Burs Alan Öğrenci İstatistiklerimiz</h1>
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Onaylanan Başvuru</p>
+                        <p class="mb-2">95%</p>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Kadın</p>
+                        <p class="mb-2">65%</p>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Erkek</p>
+                        <p class="mb-2">71%</p>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="~/scholarship/img/about.png">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<div class="container-xxl bg-primary fact py-5 wow fadeInUp" data-wow-delay="0.1s" style="margin-bottom:0px;">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
+                <i class="fa fa-users-cog fa-3x text-secondary mb-3"></i>
+                <h1 class="text-white mb-2" data-toggle="counter-up">649</h1>
+                <p class="text-white mb-0">Kayıtlı Öğrenci</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
+                <i class="fa fa-users fa-3x text-secondary mb-3"></i>
+                <h1 class="text-white mb-2" data-toggle="counter-up">1234</h1>
+                <p class="text-white mb-0">Kayıtlı Burs Veren</p>
+            </div>
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.7s">
+                <i class="fa fa-check fa-3x text-secondary mb-3"></i>
+                <h1 class="text-white mb-2" data-toggle="counter-up">328</h1>
+                <p class="text-white mb-0">Toplam Burs Alan</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5 px-lg-5">
+        <p class="section-title text-secondary justify-content-center"><span></span>Yorumlar<span></span></p>
+        <h1 class="text-center mb-5">Öğrencilerimiz Bizim Hakkımızda Neler Diyor</h1>
+        <div class="owl-carousel testimonial-carousel">
+            <div class="testimonial-item bg-light rounded my-4">
+                <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/scholarship/img/testimonial-1.jpg" style="width: 65px; height: 65px;">
+                    <div class="ps-4">
+                        <h5 class="mb-1">Client Name</h5>
+                        <span>Profession</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-light rounded my-4">
+                <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/scholarship/img/testimonial-2.jpg" style="width: 65px; height: 65px;">
+                    <div class="ps-4">
+                        <h5 class="mb-1">Client Name</h5>
+                        <span>Profession</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-light rounded my-4">
+                <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
+                <div class="d-flex align-items-center">
+                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/scholarship/img/testimonial-3.jpg" style="width: 65px; height: 65px;">
+                    <div class="ps-4">
+                        <h5 class="mb-1">Client Name</h5>
+                        <span>Profession</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

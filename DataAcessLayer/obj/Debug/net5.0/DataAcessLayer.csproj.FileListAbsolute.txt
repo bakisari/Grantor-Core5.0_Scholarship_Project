@@ -1,0 +1,17 @@
+C:\myprojects\grantor-project\DataAcessLayer\bin\Debug\net5.0\DataAcessLayer.deps.json
+C:\myprojects\grantor-project\DataAcessLayer\bin\Debug\net5.0\DataAcessLayer.runtimeconfig.json
+C:\myprojects\grantor-project\DataAcessLayer\bin\Debug\net5.0\DataAcessLayer.runtimeconfig.dev.json
+C:\myprojects\grantor-project\DataAcessLayer\bin\Debug\net5.0\DataAcessLayer.dll
+C:\myprojects\grantor-project\DataAcessLayer\bin\Debug\net5.0\ref\DataAcessLayer.dll
+C:\myprojects\grantor-project\DataAcessLayer\bin\Debug\net5.0\DataAcessLayer.pdb
+C:\myprojects\grantor-project\DataAcessLayer\bin\Debug\net5.0\EntityLayer.dll
+C:\myprojects\grantor-project\DataAcessLayer\bin\Debug\net5.0\EntityLayer.pdb
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\DataAcessLayer.csproj.AssemblyReference.cache
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\DataAcessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\DataAcessLayer.AssemblyInfoInputs.cache
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\DataAcessLayer.AssemblyInfo.cs
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\DataAcessLayer.csproj.CoreCompileInputs.cache
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\DataAcessLayer.dll
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\ref\DataAcessLayer.dll
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\DataAcessLayer.pdb
+C:\myprojects\grantor-project\DataAcessLayer\obj\Debug\net5.0\DataAcessLayer.genruntimeconfig.cache

@@ -1,0 +1,39 @@
+﻿@model List<About>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<div class="container-xxl py-5 bg-primary hero-header">
+    <div class="container my-5 py-5 px-lg-5">
+        <div class="row g-5 py-5">
+            <div class="col-12 text-center">
+                <h1 class="text-white animated slideInDown">Hakkımızda</h1>
+                <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="wow fadeInUp" data-wow-delay="0.1s">
+            <h1 class="text-center mb-5">Grantor Kimdir ?</h1>
+        </div>
+        @foreach (var item in Model)
+        {
+           <p>
+               @item.AboutDetails1
+           </p>
+           <br />
+        
+              
+           
+           
+            }
+
+</div>
+</div>
+
+<!-- Service End -->
