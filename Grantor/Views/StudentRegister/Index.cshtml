@@ -1,4 +1,4 @@
-﻿@model Student
+﻿@model Grantor.Models.AddProfileImage
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -23,18 +23,26 @@
 </div>
 <div class="container-xxl py-5" style="margin-top:0px;">
     <div class="container py-5 px-lg-5">
-        <div class="wow fadeInUp" data-wow-delay="0.1s">
-            <h1 class="text-center mb-5">Öğrenci Kayıt Formu</h1>
-        </div>
+        
         <div class="row justify-content-center">
             <div class="col-lg-7">
                 <div class="wow fadeInUp" data-wow-delay="0.3s">
-                    <form asp-action="Index" asp-controller="StudentRegister">
+                    <h1 class="text-center mb-5">Öğrenci Kayıt Formu</h1>
+                </div>
+                    <form asp-action="Index" asp-controller="StudentRegister" enctype="multipart/form-data">
                         <div class="row g-3">
-                            @if (ViewBag.notification != null)
+                            @if (ViewBag.notification == true)
                             {
                                 <script>
                                     swal("Tebrikler!", "Başarıyla Kayıt Oldunuz ", "success");
+                                </script>
+
+
+                            }
+                            @if (ViewBag.notification == false)
+                            {
+                                <script>
+                                    swal("Hata!", "Bu E-posta Adresi Zaten Kayıtlı.", "warning");
                                 </script>
 
 
@@ -63,16 +71,24 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" id="psw1" name="Password" placeholder="Şifreniz">
+                                    <input type="password" class="form-control" id="psw1" asp-for="Password" placeholder="Şifreniz">
                                     <label for="psw1">Şifre</label>
                                     <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" id="psw2"  placeholder="Şifreniz">
+                                    <input type="password" class="form-control" id="psw2" placeholder="Şifreniz">
                                     <label for="psw2">Şifre</label>
                                     <span asp-validation-for="Password" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="col-md-6" style="margin-left:auto;margin-right:auto;">
+                                <div style="margin-left:auto;margin-right:auto;">
+                                    <label for="name">Profil Resmi</label>
+                                    <input type="file" asp-for="Image" class="form-control" id="name" name="Image" placeholder="Profil Fotoğrafı">
+                                    <span asp-validation-for="Image" class="text-danger"></span>
+
                                 </div>
                             </div>
                             <div class="col-12">
@@ -84,7 +100,6 @@
             </div>
         </div>
     </div>
-</div>
 
 
 <script>

@@ -12,11 +12,12 @@ namespace EntityLayer.Concrate
         [Key]
         public int DonorID { get; set; }
         public string DonorName { get; set; }
-        public string DonorMail { get; set; }
+        public string Mail { get; set; }
         public string DonorPhone { get; set; }
-        public string DonorPassword { get; set; }
+        public string Password { get; set; }
         public string DonorImage { get; set; }
         public bool Deleted { get; set; }
         public bool Active { get; set; }
+
     }
 }

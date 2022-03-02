@@ -47,5 +47,26 @@ namespace BussinesLayer.Concrete
         {
             _studentDal.Update(t);
         }
+       public IEnumerable<Student> GetStudentFilter(string Gender,string University,string Faculty,string Section,string Maritial,string Death,string Work,string Physcial)
+        {
+            return _studentDal.GetStudentFilters(Gender,University,Faculty,Section,Maritial,Death,Work,Physcial);
+        }
+
+        public Student StudentChecked(string p)
+        {
+            return _studentDal.CheckStudent(p);
+        }
+
+        public int IDCheck(string p)
+        {
+            return _studentDal.CheckedID(p);
+        }
+
+        public List<Student> StudentDetails()
+        {
+            return _studentDal.GetListStudentDetails();
+        }
+
+   
     }
 }

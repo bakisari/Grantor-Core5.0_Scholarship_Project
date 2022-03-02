@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EntityLayer.Concrate;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -9,6 +10,7 @@ namespace DataAcessLayer.Abstract
 {
     public interface IGenericDal<T> where T : class
     {
+
         void Insert(T t);
         void Delete(T t);
         void Update(T t);

@@ -11,5 +11,9 @@ namespace BussinesLayer.Abstract
     {
         
         Student GetStudent(string username, string password);
+        Student StudentChecked(string p);
+        int IDCheck(string p);
+        List<Student> StudentDetails();
+
     }
 }

@@ -30,7 +30,7 @@ namespace BussinesLayer.Concrete
 
         public Donor CheckDonor(string DonorMail)
         {
-            throw new NotImplementedException();
+            return _donorDal.DonorChecked(DonorMail);
         }
 
         public void Delete(Donor donor)
@@ -43,7 +43,10 @@ namespace BussinesLayer.Concrete
             return _donorDal.GetByID(id);
         }
 
-    
+        public Donor GetDonor(string username, string password)
+        {
+            return _donorDal.Get(x => x.Mail == username && x.Password == password);
+        }
 
         public void Update(Donor donor)
         {

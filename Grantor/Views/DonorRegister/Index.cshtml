@@ -25,11 +25,19 @@
                 <div class="wow fadeInUp" data-wow-delay="0.3s">
                     <form asp-action="Index" asp-controller="DonorRegister">
                         <div class="row g-3">
-                          
+
                             @if (ViewBag.notification == true)
                             {
                                 <script>
                                     swal("Tebrikler!", "Başarıyla Kayıt Oldunuz ", "success");
+                                </script>
+
+
+                            }
+                            @if (ViewBag.notification == false)
+                            {
+                                <script>
+                                    swal("Hata!", "E-Posta Adresi Zaten Kullanımda ", "warning");
                                 </script>
 
 
@@ -46,9 +54,9 @@
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" name="DonorMail" placeholder="E-Posta Adresiniz">
+                                    <input type="email" class="form-control" id="email" name="Mail" placeholder="E-Posta Adresiniz">
                                     <label for="email">E-Posta</label>
-                                    <span asp-validation-for="DonorMail" class="text-danger"></span>
+                                    <span asp-validation-for="Mail" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -60,16 +68,16 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control" id="psw1" name="DonorPassword" placeholder="Şifreniz">
+                                    <input type="password" class="form-control" id="psw1" name="Password" placeholder="Şifreniz">
                                     <label for="psw1">Şifre</label>
-                                    <span asp-validation-for="DonorPassword" class="text-danger"></span>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="password" class="form-control" id="psw2" placeholder="Şifreniz">
                                     <label for="psw2">Şifre Tekrar</label>
-                                    <span asp-validation-for="DonorPassword" class="text-danger"></span>
+                                    <span asp-validation-for="Password" class="text-danger"></span>
                                 </div>
                             </div>
                             <div class="col-12">

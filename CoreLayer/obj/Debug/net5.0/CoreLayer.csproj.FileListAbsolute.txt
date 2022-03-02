@@ -10,3 +10,15 @@ C:\myprojects\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.csproj.CoreCo
 C:\myprojects\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.dll
 C:\myprojects\grantor-project\CoreLayer\obj\Debug\net5.0\ref\CoreLayer.dll
 C:\myprojects\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.pdb
+C:\projelerim\grantor-project\CoreLayer\bin\Debug\net5.0\CoreLayer.deps.json
+C:\projelerim\grantor-project\CoreLayer\bin\Debug\net5.0\CoreLayer.dll
+C:\projelerim\grantor-project\CoreLayer\bin\Debug\net5.0\ref\CoreLayer.dll
+C:\projelerim\grantor-project\CoreLayer\bin\Debug\net5.0\CoreLayer.pdb
+C:\projelerim\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.csproj.AssemblyReference.cache
+C:\projelerim\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\projelerim\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.AssemblyInfoInputs.cache
+C:\projelerim\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.AssemblyInfo.cs
+C:\projelerim\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.csproj.CoreCompileInputs.cache
+C:\projelerim\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.dll
+C:\projelerim\grantor-project\CoreLayer\obj\Debug\net5.0\ref\CoreLayer.dll
+C:\projelerim\grantor-project\CoreLayer\obj\Debug\net5.0\CoreLayer.pdb

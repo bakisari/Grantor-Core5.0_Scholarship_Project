@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\myprojects\\grantor-project\\CoreLayer\\CoreLayer.csproj",
+      "projectUniqueName": "C:\\projelerim\\grantor-project\\CoreLayer\\CoreLayer.csproj",
       "projectName": "CoreLayer",
-      "projectPath": "C:\\myprojects\\grantor-project\\CoreLayer\\CoreLayer.csproj",
+      "projectPath": "C:\\projelerim\\grantor-project\\CoreLayer\\CoreLayer.csproj",
       "packagesPath": "C:\\Users\\AbdulKadir\\.nuget\\packages\\",
-      "outputPath": "C:\\myprojects\\grantor-project\\CoreLayer\\obj\\",
+      "outputPath": "C:\\projelerim\\grantor-project\\CoreLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\AbdulKadir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -60,7 +60,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
       }
     }
   }

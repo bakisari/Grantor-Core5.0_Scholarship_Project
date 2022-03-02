@@ -9,5 +9,6 @@ namespace DataAcessLayer.Abstract
 {
    public interface IDonorDal:IGenericDal<Donor>
     {
+        Donor DonorChecked(string p);
     }
 }

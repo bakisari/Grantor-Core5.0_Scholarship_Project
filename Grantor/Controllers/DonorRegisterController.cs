@@ -34,11 +34,19 @@ namespace Grantor.Controllers
             }
             else
             {
-                ViewBag.notification = true;
-                donor.Deleted = false;
-                donor.Active = true;
-                dm.Add(donor);
-                
+                var mail = donor.Mail;
+                var mailcheck = dm.CheckDonor(mail);
+                if (mailcheck == null)
+                {
+                    ViewBag.notification = true;
+                    donor.Deleted = false;
+                    donor.Active = true;
+                    dm.Add(donor);
+                }
+                else
+                {
+                    ViewBag.notification = false;
+                }
             }
             return View();
 

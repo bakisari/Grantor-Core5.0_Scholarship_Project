@@ -1,4 +1,6 @@
 ﻿using EntityLayer.Concrate;
+using Grantor.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAcessLayer.Concrete
 {
-  public  class Context:DbContext
+  public  class Context:IdentityDbContext<AppUser,AppRole,int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -16,6 +18,7 @@ namespace DataAcessLayer.Concrete
 
 
         }
+      
         public DbSet<About> Abouts { get; set; }
         public DbSet<Admin> Admins  { get; set; }
         public DbSet<City> Cities  { get; set; }
@@ -24,6 +27,8 @@ namespace DataAcessLayer.Concrete
         public DbSet<Faculty> Faculties  { get; set; }
         public DbSet<Student> Students  { get; set; }
         public DbSet<University> Universities  { get; set; }
+        public DbSet<Section> Sections  { get; set; }
+        public DbSet<Gallery> Galleries { get; set; }
 
     }
 

@@ -11,5 +11,6 @@ namespace BussinesLayer.Abstract
     {
        
         Donor CheckDonor(string DonorMail);
+        Donor GetDonor(string username, string password);
     }
 }

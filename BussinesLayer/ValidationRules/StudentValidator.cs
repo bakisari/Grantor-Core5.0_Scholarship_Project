@@ -27,6 +27,8 @@ namespace BussinesLayer.ValidationRules
             RuleFor(x => x.Password).NotNull().WithMessage("Şifre Alanı Boş Geçilemez...");
             RuleFor(x => x.Password).MaximumLength(12).WithMessage("Şifre Alanı 12 Karakterden Uzun Olamaz...");
             RuleFor(x => x.Password).MinimumLength(6).WithMessage("Şifre Alanı 6 Karakterden Kısa Olamaz...");
+            RuleFor(x => x.Image).NotEmpty().WithMessage("Lütfen kendinize ait bir resim ekleyin...");
+            RuleFor(x => x.Image).NotNull().WithMessage("Lütfen kendinize ait bir resim ekleyin...");
         }
     }
 }

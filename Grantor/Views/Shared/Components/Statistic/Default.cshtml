@@ -1,0 +1,70 @@
+﻿<!-- Statistic 1 Start -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <p class="section-title text-secondary">İstatistikler<span></span></p>
+                <h1 class="mb-5">Öğrenci İstatistiklerimiz</h1>
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Onaylanan Başvuru</p>
+                        <p class="mb-2">@ViewBag.totalpercent %</p>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-primary" role="progressbar" aria-valuenow="@ViewBag.totalpercent" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Kadın</p>
+                        <p class="mb-2">@ViewBag.womanpercent %</p>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-secondary" role="progressbar" aria-valuenow="@ViewBag.womanpercent" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="skill mb-4">
+                    <div class="d-flex justify-content-between">
+                        <p class="mb-2">Erkek</p>
+                        <p class="mb-2">@ViewBag.womanpercent %</p>
+                    </div>
+                    <div class="progress">
+                        <div class="progress-bar bg-dark" role="progressbar" aria-valuenow="@ViewBag.womanpercent" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <a href="" class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3">Burs Al</a>
+            </div>
+            <div class="col-lg-6">
+                <img class="img-fluid wow zoomIn" data-wow-delay="0.5s" src="~/scholarship/img/about.png">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Statistic 1  End -->
+<!-- Statistic 2 Start -->
+<div class="container-xxl bg-primary fact py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
+                <i class="fa fa-users fa-3x text-secondary mb-3"></i>
+                <h1 class="text-white mb-2" data-toggle="counter-up">@ViewBag.totalstudent</h1>
+                <p class="text-white mb-0">Kayıtlı Öğrenci</p>
+            </div>
+            
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.3s">
+                <i class="fa fa-users fa-3x text-secondary mb-3"></i>
+                <h1 class="text-white mb-2" data-toggle="counter-up">@ViewBag.totalshowstudent</h1>
+                <p class="text-white mb-0">Burs Alan Öğrenci</p>
+               
+            </div>
+            <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.5s">
+             
+                <i class="fa fa-certificate fa-3x text-secondary mb-3"></i>
+                <h1 class="text-white mb-2" data-toggle="counter-up">@ViewBag.totaldonor</h1>
+                <p class="text-white mb-0">Toplam Bağışçı</p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- statistic 2 End -->

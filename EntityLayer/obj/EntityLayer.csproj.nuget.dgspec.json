@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\myprojects\\grantor-project\\EntityLayer\\EntityLayer.csproj": {}
+    "C:\\projelerim\\grantor-project\\EntityLayer\\EntityLayer.csproj": {}
   },
   "projects": {
-    "C:\\myprojects\\grantor-project\\EntityLayer\\EntityLayer.csproj": {
+    "C:\\projelerim\\grantor-project\\EntityLayer\\EntityLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\myprojects\\grantor-project\\EntityLayer\\EntityLayer.csproj",
+        "projectUniqueName": "C:\\projelerim\\grantor-project\\EntityLayer\\EntityLayer.csproj",
         "projectName": "EntityLayer",
-        "projectPath": "C:\\myprojects\\grantor-project\\EntityLayer\\EntityLayer.csproj",
+        "projectPath": "C:\\projelerim\\grantor-project\\EntityLayer\\EntityLayer.csproj",
         "packagesPath": "C:\\Users\\AbdulKadir\\.nuget\\packages\\",
-        "outputPath": "C:\\myprojects\\grantor-project\\EntityLayer\\obj\\",
+        "outputPath": "C:\\projelerim\\grantor-project\\EntityLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\AbdulKadir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,20 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.9, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -54,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.405\\RuntimeIdentifierGraph.json"
         }
       }
     }

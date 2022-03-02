@@ -10,3 +10,15 @@ C:\myprojects\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.Co
 C:\myprojects\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.dll
 C:\myprojects\grantor-project\EntityLayer\obj\Debug\net5.0\ref\EntityLayer.dll
 C:\myprojects\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.pdb
+C:\projelerim\grantor-project\EntityLayer\bin\Debug\net5.0\EntityLayer.deps.json
+C:\projelerim\grantor-project\EntityLayer\bin\Debug\net5.0\EntityLayer.dll
+C:\projelerim\grantor-project\EntityLayer\bin\Debug\net5.0\ref\EntityLayer.dll
+C:\projelerim\grantor-project\EntityLayer\bin\Debug\net5.0\EntityLayer.pdb
+C:\projelerim\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.AssemblyReference.cache
+C:\projelerim\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\projelerim\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.AssemblyInfoInputs.cache
+C:\projelerim\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.AssemblyInfo.cs
+C:\projelerim\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.csproj.CoreCompileInputs.cache
+C:\projelerim\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.dll
+C:\projelerim\grantor-project\EntityLayer\obj\Debug\net5.0\ref\EntityLayer.dll
+C:\projelerim\grantor-project\EntityLayer\obj\Debug\net5.0\EntityLayer.pdb

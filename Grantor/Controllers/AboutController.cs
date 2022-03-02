@@ -16,5 +16,9 @@ namespace Grantor.Controllers
             var values = abm.GetAboutCheck();
             return View(values);
         }
+        public IActionResult testpage()
+        {
+            return View();
+        }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using BussinesLayer.Concrete;
+using BussinesLayer.ValidationRules;
 using DataAcessLayer.EntityFramework;
 using EntityLayer.Concrate;
+using FluentValidation.Results;
+using Grantor.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,41 +20,65 @@ namespace Grantor.Controllers
         StudentManager sm = new StudentManager(new EfStudentRepository());
         CityManager cm = new CityManager(new EfCityRepository());
         UniversityManager um = new UniversityManager(new EfUniversityRepository());
-        
+        FacultyManager fm = new FacultyManager(new EfFacultyRepository());
+        SectionManager sem = new SectionManager(new EfSectionRepository());
+
         [HttpGet]
         public IActionResult StudentProfile(int id)
         {
+            var usermail = User.Identity.Name;
+            var userid = sm.IDCheck(usermail);
+            id = userid;
             
-            List<SelectListItem> valuecategory = (from x in cm.AllList()
-                                                  select new SelectListItem
-                                                  {
-                                                      Text = x.CityName,
-                                                      Value = x.CityID.ToString()
-                                                  }).ToList();
+            // *** Cities,University,Faculty and Section Lists***//
+            Lists lists = new Lists();
+            ViewBag.vlu = lists.University();
+            ViewBag.vlf = lists.Fakulte();
+            ViewBag.vlc = lists.Cities();
+            ViewBag.vls = lists.Sections();
 
-            ViewBag.vlc = valuecategory;
-
-            List<SelectListItem> valueuniversity = (from x in um.AllList()
-                                                  select new SelectListItem
-                                                  {
-                                                      Text = x.UniversityName,
-                                                      Value = x.UniversityID.ToString()
-                                                  }).ToList();
-
-            ViewBag.vlu = valueuniversity;
-            id = 16;
-            var values =sm.GetByID(id);
+           
+            TempData["StudentID"] = id;
+            var values = sm.GetByID(id);
             return View(values);
         }
         // Student edit or profile page
         [HttpPost]
         public IActionResult StudentProfile(Student student)
         {
-            student.Active = true;
-            sm.Update(student);
-            ViewBag.notification ="true";
-            TempData["notification"] = "deger";
-            return RedirectToAction("StudentProfile");
+            // *** Cities,University,Faculty and Section Lists***//
+            Lists lists = new Lists();
+            ViewBag.vlu = lists.University();
+            ViewBag.vlf = lists.Fakulte();
+            ViewBag.vlc = lists.Cities();
+            ViewBag.vls = lists.Sections();
+
+            UpdateProfileValidator upv = new UpdateProfileValidator();
+            ValidationResult results = upv.Validate(student);
+            if (!results.IsValid)
+            {
+                foreach (var item in results.Errors)
+                {
+                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                }
+                return View();
+            }
+            else
+            {
+                student.Active = true;
+               
+                sm.Update(student);
+                ViewBag.notification = "true";
+                TempData["notification"] = "deger";
+                return RedirectToAction("StudentProfile");
+            }
+
+        }
+        [AllowAnonymous]
+        public IActionResult SelectedStudents()
+        {
+            var studentvalues = sm.StudentDetails().Where(x=>x.SiteShow==true).Where(y=>y.Active==true).Where(z=>z.Deleted==false).ToList();
+            return View(studentvalues);
         }
 
     }

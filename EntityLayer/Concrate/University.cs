@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Grantor.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace EntityLayer.Concrate
         public bool Active { get; set; }
         public bool Deleted { get; set; }
         public string UniversityName { get; set; }
+        public List<AppUser> appUsers { get; set; }
         public List<Student> Students { get; set; }
         public List<Faculty> Faculties { get; set; }
     }
