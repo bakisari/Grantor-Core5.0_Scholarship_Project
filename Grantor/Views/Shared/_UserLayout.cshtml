@@ -65,21 +65,34 @@
                         <a href="/Student/SelectedStudents" class="nav-item nav-link">Burs Alan Öğrencilerimiz</a>
                         <a href="/Gallery/Index" class="nav-item nav-link">Galeri</a>
                         <a href="/About/Index" class="nav-item nav-link">Hakkımızda</a>
-
                         <a href="/Contact/Index" class="nav-item nav-link">İletişim</a>
+                        @if (User.IsInRole("Student"))
+                        {
+                            <a href="/Student/StudentProfile" class="nav-item nav-link">Profil</a>
+
+                        }
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <a href="/User/UserSettings" class="nav-item nav-link">Ayarlar</a>
+
+                        }
                         @if (User.Identity.IsAuthenticated)
                         {
                             <a href="/Login/LogOut" class="nav-item nav-link">Çıkış Yap</a>
                         }
                         else
                         {
-                            <a href="/Login/Index" class="nav-item nav-link">Giriş Yap</a>
+                            <a href="/Login/LogIn" class="nav-item nav-link">Giriş Yap</a>
 
                         }
                     </div>
-              
-                        <a href="/Filter/Index" class="btn rounded-pill py-2 px-4 ms-3" style="background-color:orange;color:white"><i class="fa fa-search"></i> Öğrenci Ara </a>
-                    
+
+                    @if (User.IsInRole("Donor"))
+
+                    {
+                        <a href="/StudentFilter/Index" class="btn rounded-pill py-2 px-4 ms-3" style="background-color:orange;color:white"><i class="fa fa-search"></i> Öğrenci Ara </a>
+
+                    }
                 </div>
             </nav>
 
@@ -109,3 +122,29 @@
 </body>
 
 </html>
+
+
+
+@RenderSection("myscript", false)
+   
+<!--===============================================================================================-->
+<script src="~/userlogin/vendor/animsition/js/animsition.min.js"></script>
+<script src="~/userlogin/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/userlogin/vendor/bootstrap/js/popper.js"></script>
+<script src="~/userlogin/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/userlogin/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="~/userlogin/vendor/daterangepicker/moment.min.js"></script>
+<script src="~/userlogin/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="~/userlogin/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="~/userlogin/js/main.js"></script>
+
+
+
+
+
+

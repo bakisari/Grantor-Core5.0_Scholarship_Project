@@ -1,4 +1,4 @@
-﻿@model EntityLayer.Concrate.Student
+﻿@model Grantor.Models.AppUser
 @{
     ViewData["Title"] = "StudentProfile";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -17,7 +17,7 @@
     <div class="container py-5 px-lg-5">
         <div class="wow fadeInUp" data-wow-delay="0.1s">
             <h1 class="text-center mb-5">Profil Sayfası</h1>
-    
+
 
         </div>
         <div class="row justify-content-center">
@@ -32,21 +32,19 @@
                         </p>
 
                         <br />
-                        <input type="hidden" asp-for="Image" />
-                        
-                            <div class="team-item bg-light rounded" >
-                                
-                                    <img class="img-fluid rounded-circle " src="/UserImages/@Model.Image" alt="">
-                                 
-                                
-                                
-                            </div>
-                        
+                        @*<input type="hidden" asp-for="Image" />*@
+
+                        <div class="team-item bg-light rounded">
+
+                            <img class="img-fluid rounded-circle " name="Image" src="/UserImages/@Model.Image" alt="">
+
+                        </div>
+
 
                         <input type="hidden" asp-for="CreateDate" name="CreateDate" />
                         <br />
                         <div class="row g-3">
-                            @if (TempData["notification"] != null)
+                            @if (ViewBag.notification=="success")
                             {
                                 <script>
                                     swal("Tebrikler!", "Bilgileriniz Başarıyla Güncellendi. Profiliniz Bağışcılara Görünür Hale Geldi. ", "success");
@@ -55,7 +53,8 @@
 
                             }
 
-                            <input type="hidden" asp-for="ID" />
+
+                            <input type="hidden" asp-for="Id" />
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" asp-for="FirstName" class="form-control" id="name" name="FirstName" placeholder="Adınız">
@@ -64,6 +63,7 @@
                                 <span asp-validation-for="FirstName" class="text-danger"></span>
 
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="text" class="form-control" asp-for="LastName" id="surname" name="LastName" placeholder="Soyadınız">
@@ -72,26 +72,31 @@
                                 <span asp-validation-for="LastName" class="text-danger"></span>
 
                             </div>
-
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" asp-for="Mail" id="email" name="Mail" placeholder="E-Posta Adresiniz">
+                                    <input type="email" class="form-control" asp-for="Email" id="email" name="Mail" placeholder="E-Posta Adresiniz">
                                     <label for="email">E-Posta</label>
                                 </div>
-                                <span asp-validation-for="Mail" class="text-danger"></span>
+                                <span asp-validation-for="Email" class="text-danger"></span>
 
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="tel" class="form-control" asp-for="Phone" id="email" name="Phone" placeholder="Telefon Numarası">
+                                    <input type="tel" class="form-control" asp-for="PhoneNumber" id="email" name="Phone" placeholder="Telefon Numarası">
                                     <label for="email">Telefon Numarası</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="hidden" class="form-control" asp-for="Password" id="psw1" name="Password" placeholder="Şifreniz">
+                                    <input type="hidden" class="form-control" asp-for="PasswordHash" id="psw1" name="Password" placeholder="Şifreniz">
                                 </div>
                             </div>
+
+
+
+
+
                             <div class="col-md-6">
                                 <div class="form-floating">
                                     <input type="date" class="form-control" asp-for="BirthDate" id="" name="BirthDate" placeholder="Doğum Tarihi">
@@ -233,6 +238,8 @@
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Profili Güncelle</button>
                             </div>
+
+
                         </div>
                     </form>
 

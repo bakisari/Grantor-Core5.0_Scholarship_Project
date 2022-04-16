@@ -23,67 +23,7 @@ namespace Grantor.Controllers
             this.userManager = userManager;
         }
 
-        StudentManager sm = new StudentManager(new EfStudentRepository());
-        [HttpGet]
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Index(AddProfileImage p)
-        {
-
-            Student std = new Student();
-            if (p.Image != null)
-            {
-                var extansion = Path.GetExtension(p.Image.FileName);
-                var newimagename = Guid.NewGuid() + extansion;
-                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/UserImages/", newimagename);
-                var stream = new FileStream(location, FileMode.Create);
-                p.Image.CopyTo(stream);
-                std.Image = newimagename;
-            }
-         
-            std.FirstName = p.FirstName;
-            std.LastName = p.LastName;
-            std.Mail = p.Mail;
-            std.Password = p.Password;
-            std.Phone = p.Phone;
-
-
-            StudentValidator sv = new StudentValidator();
-            ValidationResult results = sv.Validate(std);
-            if (!results.IsValid)
-            {
-                foreach (var item in results.Errors)
-                {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
-                }
-                return View();
-            }
-            else
-            {
-                string mail = p.Mail;
-                var mailchecked = sm.StudentChecked(mail);
-                if (mailchecked==null)
-                {
-                    std.Active = false;
-                    std.Deleted = false;
-                   
-                    std.CreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-                    ViewBag.notification = true;
-                    sm.Add(std);
-                    return View();
-                }
-                else
-                {
-                    ViewBag.notification = false;
-                    return View();
-                }
-              
-            }
-        }
+      
         public IActionResult SignUp()
         {
             return View();
@@ -108,11 +48,30 @@ namespace Grantor.Controllers
                 user.FirstName = userViewModel.FirstName;
                 user.LastName = userViewModel.LastName;
                 user.Email = userViewModel.EMail;
-
+                user.Active = false;
+                user.Deleted = false;
+                user.IsStudent = true;
                 IdentityResult result = await userManager.CreateAsync(user,userViewModel.Password);
+              
+              
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Login");
+                    var addRoleToUser = await userManager.AddToRoleAsync(user, "Student");
+
+                    /*************** User E-Mail Confirmed *************************
+                     * token oluşturdur
+                     * link oluşturduk
+                     * oluşturulan token ve linki sendEmail methoduna gönderiyoruz
+                     */
+                    string confirmationToken = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                    string link = Url.Action("ConfirmEmail", "UserVerification", new
+                    {
+                        userId = user.Id,
+                        token=confirmationToken,
+                    },HttpContext.Request.Scheme);
+                    Helper.EmailConfirmation.SendEmail(link,user.Email);
+                   /****************************************************************/
+                    return RedirectToAction("LogIn", "Login");
                 }
                 else
                 {
@@ -126,6 +85,6 @@ namespace Grantor.Controllers
 
             return View(userViewModel);
         }
-
+       
     }
 }

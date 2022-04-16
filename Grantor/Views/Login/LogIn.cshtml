@@ -1,0 +1,114 @@
+﻿@model Grantor.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "LogIn";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+
+}
+<partial name="~/Views/Shared/Partials/LoginScriptPartial.cshtml" />
+<div class="container-xxl py-5 bg-primary hero-header" style="margin-bottom:0px;">
+
+    <div class="row g-5 py-5" style="margin-bottom:0px">
+        <div class="col-12 text-center">
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container-xxl py-5" style="margin-top:0px;">
+
+    @if (ViewBag.UserLockoutError == true)
+    {
+        <script>
+            swal("Hesabınız Kilitlendi!", "Çok sayıda başarısız giriş denemesi yaptığınz için hesabınız geçiçi süreliğine kilitlendi. Lütfen daha sonra tekrar deneyin.", "warning");
+        </script>
+    }
+ 
+
+
+
+
+    <div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30" style="margin:auto;">
+        <form asp-action="LogIn" method="post" class="login100-form validate-form">
+            <span class="login100-form-title p-b-37">
+                Giriş Yap
+            </span>
+            @if (ViewBag.verifcationstatus != null)
+            {
+                <div class="alert alert-info">
+                    @ViewBag.verifcationstatus
+
+                </div>
+            }
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="wrap-input100 validate-input m-b-20" data-validate="E-posta adresinizi girin">
+
+                <div class="wrap-input100 validate-input m-b-20" data-validate="E-posta adresinizi girin">
+                    <input class="input100" type="text" name="EMail" placeholder="E-Posta">
+                    <span asp-validation-for="EMail" class="text-danger"></span>
+                    <span class="focus-input100"></span>
+                </div>
+            </div>
+
+            <div class="wrap-input100 validate-input m-b-25" data-validate="Şifrenizi girin">
+                <input class="input100" type="password" name="Password" placeholder="Şifre">
+                <span class="focus-input100"></span>
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <input type="checkbox" class="checkbox-success" asp-for="RememberMe" /> Beni Hatırla
+            </div>
+
+            <div class="container-login100-form-btn">
+                <button class="login100-form-btn">
+                    GİRİŞ YAP
+                </button>
+            </div>
+            <div class="text text-center">
+                <a asp-action="ResetPassword" asp-controller="PasswordReset" class="txt2 hov1">
+                    Şifremi Unuttum
+                </a>
+            </div>
+            <div class="flex-c p-b-112">
+                <a href="#" class="login100-social-item">
+                    <i class="fa fa-facebook-f"></i>
+                </a>
+
+                <a href="#" class="login100-social-item">
+                    <img src="~/userlogin/images/icons/icon-google.png" alt="GOOGLE">
+                </a>
+            </div>
+
+            <div class="text-center">
+                <a href="#" class="txt2 hov1">
+                    Kayıt Ol
+                </a>
+            </div>
+        </form>
+    </div>
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script src="~/userlogin/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/userlogin/vendor/animsition/js/animsition.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/userlogin/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/userlogin/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/userlogin/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/userlogin/vendor/daterangepicker/moment.min.js"></script>
+    <script src="~/userlogin/vendor/daterangepicker/daterangepicker.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/userlogin/vendor/countdowntime/countdowntime.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/userlogin/js/main.js"></script>
+</div>
+@section myscript{
+
+}

@@ -1,4 +1,4 @@
-﻿@model List<Student>
+﻿@model List<AppUser>
 @{
     ViewData["Title"] = "SelectedStudents";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -9,7 +9,7 @@
     <div class="row g-5 py-5">
         <div class="col-12 text-center" style="margin-bottom:0px;">
         </div>
-    </div>
+    </div> 
 
 </div>
 
@@ -31,19 +31,24 @@
                     </div>
                 </div>
                 <div class="row">
+
                     <!-- Single Advisor-->
                     @foreach (var item in Model)
                     {
+
                         <div class="col-12 col-sm-6 col-lg-6">
                             <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
                                 <!-- Team Thumb-->
                                 <div class="advisor_thumb">
-                                    <img src="~/UserImages/@item.Image" alt="">
+                                    <div class="card" style="height:300px">
+                                        <img src="~/UserImages/@item.Image" style="height:300px" alt="">
+                                    </div>
                                     <!-- Social Info-->
                                     <div class="social-info">
                                         <p>Burs KAZANDI</p>
                                     </div>
                                 </div>
+
                                 <!-- Team Details-->
                                 <div class="single_advisor_details_info">
                                     <h4>@item.FirstName @item.LastName</h4>
@@ -54,7 +59,7 @@
 
                             </div>
                         </div>
-                     
+
                     }
 
 

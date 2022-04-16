@@ -1,0 +1,14 @@
+﻿@model List<Comment>
+@foreach (var item in Model)
+{
+    <div class="testimonial-item bg-light rounded my-4">
+        <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>@item.CommentValue</p>
+        <div class="d-flex align-items-center">
+            <img class="img-fluid flex-shrink-0 rounded-circle" src="~/UserImages/@item.user.Image" style="width: 65px; height: 65px;">
+            <div class="ps-4">
+                <h5 class="mb-1">@item.user.FirstName @item.user.LastName</h5>
+                <span>Öğrenci</span>
+            </div>
+        </div>
+    </div>
+}

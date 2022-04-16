@@ -1,0 +1,18 @@
+﻿@model List<Adress>
+<div class="col-md-6 col-lg-3">
+    <p class="section-title text-white h5 mb-4">Adres<span></span></p>
+
+    @foreach (var item in Model)
+    {
+        <p><i class="fa fa-map-marker-alt me-3"></i>@item.AdressDetail</p>
+        <p><i class="fa fa-phone-alt me-3"></i>@item.PhoneNumber</p>
+        <p><i class="fa fa-envelope me-3"></i>@item.Mail</p>
+    }
+
+    <div class="d-flex pt-2">
+        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
+        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+    </div>
+</div>

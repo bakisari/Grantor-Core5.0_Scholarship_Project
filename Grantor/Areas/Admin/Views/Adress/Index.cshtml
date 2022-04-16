@@ -1,0 +1,22 @@
+﻿@model EntityLayer.Concrate.Adress
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<div class="container col-lg-6">
+    <h1 class="text-danger">Site İletişim Adresi Bilgileri</h1>
+    <form asp-action="UpdateAdress" method="post">
+        <label>Açık Adres</label>
+        <input type="text" class="form-control" asp-for="AdressDetail" />
+        <br />
+
+        <label class="form-group">Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="PhoneNumber" />
+        <br />
+        <label>E-Posta Adresi</label>
+        <input type="text" class="form-control" asp-for="Mail" />
+        <br />
+        <button type="submit" class="btn btn-danger"><i class="fa fa-save"></i> Kaydet</button>
+    </form>
+</div>

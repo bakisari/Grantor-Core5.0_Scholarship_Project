@@ -1,0 +1,76 @@
+﻿@model List<Faq>
+@{
+    ViewData["Title"] = "SSS";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<link href="~/css/Faq.css" rel="stylesheet" />
+
+<div class="container-xxl py-5 bg-primary hero-header" style="margin-bottom:0px;">
+
+    <div class="row g-5 py-5" style="margin-bottom:0px">
+        <div class="col-12 text-center">
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container-xxl py-5" style="margin-top:0px;">
+
+    <div class="faq_area section_padding_130" id="faq">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-8 col-lg-6">
+                    <!-- Section Heading-->
+                    <div class="section_heading text-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <h3><span>Sıkça </span> Sorulan Sorular</h3>
+
+                        <div class="border-bottom"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                @{int counter = 0;}
+
+
+                @foreach (var item in Model)
+                {
+                    counter++;
+
+                    <!-- FAQ Area-->
+                    <div class="col-12 col-sm-10 col-lg-8">
+
+
+                        @{ string modalvalue = "a" + counter;}
+                        @{ string modelclass = "b" + counter;}
+
+                        <div class="accordion faq-accordian" id="faqAccordion">
+                            <div class="card border-0 wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                                <div class="card-header" id="headingOne">
+                                    <h6 class="mb-0 collapsed" data-toggle="collapse" data-target="#@modelclass" aria-expanded="true" aria-controls="collapseOne">@item.Title<span class="lni-chevron-up"></span></h6>
+                                </div>
+                                <div class="collapse" id="@modelclass" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                                    <div class="card-body">
+                                        <p>@item.Explanation</p>
+                                     
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                                counter++;
+                            }
+                </div>
+            </div>
+       
+                <!-- Support Button-->
+                <div class="support-button text-center d-flex align-items-center justify-content-center mt-4 wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                    <i class="lni-emoji-sad"></i>
+                    <p class="mb-0 px-2">Bu cevaplar size yardımcı olmadı mı?</p>
+                    <a href="/Contact/Index"> Bizimle İletişim Geç</a>
+                </div>
+            </div>
+
+   

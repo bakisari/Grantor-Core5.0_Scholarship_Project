@@ -1,0 +1,59 @@
+﻿@model List<Decont>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2 class="text-justify">Dekont Bilgileri</h2>
+
+    <div class="row col-12">
+
+        <div class="col-md-2">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+
+                        <th>Dekont</th>
+
+                    </tr>
+                </thead>
+                @foreach (Decont file in ViewBag.files)
+                {
+                    <tr>
+
+
+                        <td> @Html.ActionLink("  Dekontu İndir", "DownloadFile", new { Value = file.Value }, new { @class = "btn btn-outline-dark fa fa-download" })</td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-md-10">
+            <table class="table">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Gönderici</th>
+                        <th>Alıcı</th>
+                    </tr>
+                </thead>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <th style="line-height:30px">@item.SenderUser.FirstName</th>
+                        <th>@item.ReceiverUser.FirstName @item.ReceiverUser.LastName</th>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+</body>
+</html>

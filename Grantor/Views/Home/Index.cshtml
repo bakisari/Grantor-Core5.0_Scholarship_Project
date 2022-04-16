@@ -9,8 +9,8 @@
             <div class="col-lg-6 text-center text-lg-start">
                 <h1 class="text-white mb-4 animated slideInDown">Tüm Üniversite Öğrencilerine Burs Fırsatı!</h1>
                 <p class="text-white pb-3 animated slideInDown">GRANTOR, BURS ARAYAN ÖĞRENCİLERİN VE BURS VERMEK İSTEYEN KİŞİ VE KURULUŞLARIN BULUŞTUĞU TÜRKİYE'NİN TEK DİGİTAL BURS PLATFORMUDUR. SİZ DE GRANTOR ÜYESİ OLUN,BURS VERMEK İÇİN SİZLERİ BEKLEYEN BİNLERCE KİŞİ VE KURULUŞ SİZİ SEÇSİN.</p>
-                <a href="/StudentRegister/Index" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Öğrenci Kayıt</a>
-                <a href="/DonorRegister/Index" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Burs Veren Kayıt</a>
+                <a href="/StudentRegister/SignUp" class="btn btn-secondary py-sm-3 px-sm-5 rounded-pill me-3 animated slideInLeft">Öğrenci Kayıt</a>
+                <a href="/DonorRegister/Register" class="btn btn-light py-sm-3 px-sm-5 rounded-pill animated slideInRight">Burs Veren Kayıt</a>
             </div>
             <div class="col-lg-6 text-center text-lg-start">
                 <img class="img-fluid animated zoomIn" src="~/scholarship/img/hero.png" alt="">
@@ -25,36 +25,17 @@
         <p class="section-title text-secondary justify-content-center"><span></span>Yorumlar<span></span></p>
         <h1 class="text-center mb-5">Öğrencilerimiz Bizim Hakkımızda Neler Diyor</h1>
         <div class="owl-carousel testimonial-carousel">
-            <div class="testimonial-item bg-light rounded my-4">
-                <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/scholarship/img/testimonial-1.jpg" style="width: 65px; height: 65px;">
-                    <div class="ps-4">
-                        <h5 class="mb-1">Client Name</h5>
-                        <span>Profession</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-light rounded my-4">
-                <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/scholarship/img/testimonial-2.jpg" style="width: 65px; height: 65px;">
-                    <div class="ps-4">
-                        <h5 class="mb-1">Client Name</h5>
-                        <span>Profession</span>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item bg-light rounded my-4">
-                <p class="fs-5"><i class="fa fa-quote-left fa-4x text-primary mt-n4 me-3"></i>Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo.</p>
-                <div class="d-flex align-items-center">
-                    <img class="img-fluid flex-shrink-0 rounded-circle" src="~/scholarship/img/testimonial-3.jpg" style="width: 65px; height: 65px;">
-                    <div class="ps-4">
-                        <h5 class="mb-1">Client Name</h5>
-                        <span>Profession</span>
-                    </div>
-                </div>
-            </div>
+            @await Component.InvokeAsync("CommentList")
+
         </div>
+        @if (User.IsInRole("Student"))
+        {
+            <div class="col-md-4 offset-sm-4">
+                <button class="btn btn-primary py-sm-3 px-sm-5 rounded-pill mt-3" style="background-color:orange" data-toggle="modal" data-target="#exampleModal">Yorum Yap</button>
+
+            </div>
+        }
+
+        <partial name="~/Views/Shared/Partials/AddCommentPartial.cshtml" />
     </div>
 </div>

@@ -1,5 +1,7 @@
 ﻿using BussinesLayer.Concrete;
 using DataAcessLayer.EntityFramework;
+using Grantor.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,8 +12,15 @@ namespace Grantor.ViewComponents.Statistic
 {
     public class Statistic : ViewComponent
     {
-        StudentManager sm = new StudentManager(new EfStudentRepository());
-        DonorManager dm = new DonorManager(new EfDonorRepository());
+        StUserManager sm = new StUserManager(new EfUserRepository());
+        //   DonorManager dm = new DonorManager(new EfDonorRepository());
+        UserManager<AppUser> userManager { get; }
+         RoleManager<AppRole> roleManager { get; }
+        public Statistic(RoleManager<AppRole> roleManager,UserManager<AppUser> userManager)
+        {
+            this.userManager = userManager;
+            this.roleManager = roleManager;
+        }
         public IViewComponentResult Invoke()
         {
             int totalstudent = sm.AllList().Count;
@@ -19,11 +28,11 @@ namespace Grantor.ViewComponents.Statistic
             int countman = sm.AllList().Where(x => x.Gender == "Erkek").Where(y=>y.Active==true).Count();
             int countwoman = sm.AllList().Where(x => x.Gender == "Kadın").Where(y=>y.Active==true).Count();
             int countshowstudent = sm.AllList().Where(x => x.SiteShow == true).Count();
-            int totaldonor =dm.AllList().Count;
+            
             double totalstudentpercent = (totalactivestudent/totalstudent) *100;
             double totalmanpercent = (countman /totalactivestudent) *  100;
             double totalwomanpercent = (countwoman /totalactivestudent) *  100;
-            ViewBag.totaldonor = totaldonor;
+           // ViewBag.totaldonor = totaldonor;
             ViewBag.totalstudent = totalactivestudent;
             ViewBag.totalshowstudent = countshowstudent;
             ViewBag.totalpercent = totalstudentpercent;

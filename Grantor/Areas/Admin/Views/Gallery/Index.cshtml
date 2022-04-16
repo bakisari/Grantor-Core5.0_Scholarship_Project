@@ -1,0 +1,23 @@
+﻿@model List<Gallery>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="thumbnail">
+                <a href="/w3images/nature.jpg">
+                    <img src="@item.ImageUrl" alt="Nature" style="width:100%">
+                    <div class="caption">
+                        <p>@item.ImageDescription</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+
+</div>
+

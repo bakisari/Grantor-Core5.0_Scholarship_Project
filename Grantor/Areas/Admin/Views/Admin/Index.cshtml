@@ -1,0 +1,97 @@
+﻿@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+<div class="content border-2">
+    <button class="btn btn-outline-danger" data-toggle="modal" data-target="#exampleModal">Yeni Yönetici Ekle</button>
+
+
+
+    @if (ViewBag.status== "false")
+    {
+        <script>
+            swal("Hata", "İşlem gerçekleştirilemedi,lütfen alanları kontrol edin. ", "error");
+        </script>
+
+    }
+    @if (ViewBag.status== "success")
+    {
+        <script>
+            swal("Tebrikler", "Yeni yönetici ekleme işlemi başarılı. ", "success");
+        </script>
+
+    }
+
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Yeni Yönetici</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form asp-action="AddAdmin" asp-controller="Admin" method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Kullanıcı Adı:</label>
+                            <input type="text" name="UserName" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">E-Posta:</label>
+                            <input type="text" name="EMail" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="form-group">
+                            <label for="recipient-name" class="col-form-label">Şifre:</label>
+                            <input type="password" name="Password" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                            <button type="submit" class="btn btn-primary">Kullanıcı Ekle</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <h3 class="text-center">Yönetici İşlemleri</h3>
+
+    <table class="table table-dark table-responsive-md">
+        <thead>
+            <tr>
+                <th>Kullanıcı Adı</th>
+                <th>E-Posta</th>
+                <th>Güncelle</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Email</td>
+                    @if (item.Deleted == false)
+                    {
+                        <td><a href="/Admin/Admin/AdminEdit/@item.Id" class="btn btn-danger">Pasif Yap</a></td>
+
+                    }
+                    else
+                    {
+                        <td><a href="/Admin/Admin/AdminEdit/@item.Id" class="btn btn-primary">Aktif Yap</a></td>
+
+                    }
+                </tr>
+            }
+
+
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,94 @@
+﻿@model List<Faq>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+
+<h1>Sıkça Sorulan Sorular</h1>
+<div class="border-bottom"></div>
+<br />
+<div class="col-lg-offset-6">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i> Yeni SSS Ekle</button>
+</div>
+<br />
+@foreach (var item in Model)
+{
+    <div class="col-lg-12">
+        <div class="ibox collapsed">
+            <div class="ibox-title">
+                <h5>@item.Title</h5>
+                <div class="ibox-tools">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-wrench"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="/Admin/Faq/UpdateFaq/@item.ID" class="dropdown-item"><i class="fa fa-pencil"></i> Düzenle</a>
+                        </li>
+                        <li>
+                            <a href="/Admin/Faq/DeleteFaq/@item.ID" class="dropdown-item"><i class="fa fa-trash"></i> Sil</a>
+                        </li>
+                    </ul>
+                    <a class="close-link">
+                        <i class="fa fa-times"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="ibox-content">
+
+                <p>
+                    @item.Explanation
+                </p>
+
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">SSS Ekle</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-action="AddFaq" asp-controller="Faq" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Soru</label>
+                        <input type="text" name="Title" class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-text" class="col-form-label">Cevap</label>
+                        <textarea class="form-control" name="Explanation" id="message-text"></textarea>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">İptal</button>
+                        <button type="submit" class="btn btn-primary">Ekle</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

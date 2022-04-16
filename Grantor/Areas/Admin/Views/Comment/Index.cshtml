@@ -1,0 +1,53 @@
+﻿@model List<Comment>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/_AdminLayout.cshtml";
+}
+    <div class="content">
+        <h3 class="text-center">Yorumlar</h3>
+        <table class="table table-dark table-responsive">
+            <thead>
+                <tr>
+                    <th>Kullanıcı</th>
+                    <th>Yorum</th>
+                    <th>Durum</th>
+                </tr>
+               
+            </thead>
+            <tbody>
+
+
+                @foreach (var item in Model)
+                {
+                <tr>
+                    <th scope="row">
+                        <div class="media align-items-center">
+                            <img class="avatar rounded-circle mr-3" style="width:30px;" src="~/UserImages/@item.user.Image">
+
+                            <div class="media-body">
+
+                                <span class="mb-0 text-sm">@item.user.FirstName @item.user.LastName</span>
+                            </div>
+                        </div>
+                    </th>
+                    <td>@item.CommentValue</td>
+                    @if (item.Status == true)
+                    {
+                        <td><a href="/Admin/Comment/UpdateComment/@item.CommentId" class="btn btn-danger"><i class="fa fa-trash"></i> Yayından Kaldır</a></td>
+                    }
+                    else
+                    {
+                        <td><a href="/Admin/Comment/UpdateComment/@item.CommentId" class="btn btn-primary"><i class="fa fa-pencil"></i> Sitede Yayınla</a></td>
+
+                    }
+
+
+                </tr>
+
+                        }
+
+
+                </tbody>
+        </table>
+    </div>
+

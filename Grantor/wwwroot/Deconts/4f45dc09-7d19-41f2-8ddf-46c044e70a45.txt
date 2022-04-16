@@ -1,0 +1,6 @@
+Banka : Ziraat Bankası
+Gönderici : Murat Yücedağ
+Alıcı : Baki Sarı
+Alıcı IBAN : TR987654321987654321
+Tutar : 500 TL
+Tarih : 16.04.2022

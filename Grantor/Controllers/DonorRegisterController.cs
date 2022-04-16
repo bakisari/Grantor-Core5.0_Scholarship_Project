@@ -3,6 +3,10 @@ using BussinesLayer.ValidationRules;
 using DataAcessLayer.EntityFramework;
 using EntityLayer.Concrate;
 using FluentValidation.Results;
+using Grantor.Areas.Admin.Controllers;
+using Grantor.Models;
+using Grantor.Models.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,46 +15,51 @@ using System.Threading.Tasks;
 
 namespace Grantor.Controllers
 {
-    public class DonorRegisterController : Controller
+    public class DonorRegisterController : BaseController
     {
-        DonorManager dm = new DonorManager(new EfDonorRepository());
-        [HttpGet]
-        public IActionResult Index()
+       
+        public DonorRegisterController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, RoleManager<AppRole> roleManager) : base(userManager, signInManager, roleManager)
+        {
+        }
+
+
+        public IActionResult Register()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Index(Donor donor)
+        public async Task<IActionResult> Register(DonorViewModel donorViewModel)
         {
-            DonorValidator dv = new DonorValidator();
-            ValidationResult validation = dv.Validate(donor);
-            if (!validation.IsValid)
+            AppUser user = new AppUser();
+            if (ModelState.IsValid)
             {
-                foreach (var item in validation.Errors)
+                user.PhoneNumber = donorViewModel.PhoneNumber;
+                user.FirstName = donorViewModel.Name;
+                user.UserName = donorViewModel.EMail;
+                user.Email = donorViewModel.EMail;
+                user.Active = true;
+                user.Deleted = false;
+                user.EmailConfirmed = true;
+                user.IsStudent = false;
+               
+                IdentityResult result = await userManager.CreateAsync(user, donorViewModel.Password);
+                if (result.Succeeded)
                 {
-                    ModelState.AddModelError(item.PropertyName, item.ErrorMessage);
+                    bool notification = true;
+                    var addRoleToUser = await userManager.AddToRoleAsync(user, "Donor");
+
+                    ViewBag.notification = notification;
                     return View();
-                }
-            }
-            else
-            {
-                var mail = donor.Mail;
-                var mailcheck = dm.CheckDonor(mail);
-                if (mailcheck == null)
-                {
-                    ViewBag.notification = true;
-                    donor.Deleted = false;
-                    donor.Active = true;
-                    dm.Add(donor);
                 }
                 else
                 {
-                    ViewBag.notification = false;
+                    AddModelError(result);
                 }
             }
-            return View();
-
-
+        
+            return View(donorViewModel);
         }
+
+
     }
 }

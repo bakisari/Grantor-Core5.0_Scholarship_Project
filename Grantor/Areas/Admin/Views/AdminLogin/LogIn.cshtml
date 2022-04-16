@@ -1,0 +1,35 @@
+﻿@model Grantor.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "LogIn";
+    Layout = null;
+}
+<script src="~/js/site.js"></script>
+
+<link href="~/css/AdminLogin.css" rel="stylesheet" />
+
+
+<body id="particles-js">
+</body>
+<div class="animated bounceInDown">
+    <div class="container">
+        <span class="error animated tada" id="msg"></span>
+        <form name="form1" asp-action="LogIn" class="box" onsubmit="return checkStuff()">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <h4>Grantor<span>Yönetim Paneli</span></h4>
+            <h5>Lütfen giriş yapın.</h5>
+            <input type="text" asp-for="EMail" placeholder="Email" autocomplete="off">
+            <span asp-validation-for="EMail" class="text-danger"></span>
+
+            <i class="typcn typcn-eye" id="eye"></i>
+            <input type="password" asp-for="Password" placeholder="Passsword" id="pwd" autocomplete="off">
+            <span asp-validation-for="Password" class="text-danger"></span>
+            <br />
+            
+            <input type="submit" value="Giriş Yap" class="btn1">
+        </form>
+        <a href="#" class="dnthave">Şifremi Unuttum</a>
+    </div>
+
+</div>

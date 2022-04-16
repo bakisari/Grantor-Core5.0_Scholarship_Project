@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "RO7pJ0r5NUlc2oPkfsnWSOicVkLJq+Jd+V7yJjLvzrVkLVRq2QyH33agQajsGU2k/swoet5VeVbcQGFutJqNYg==",
+  "dgSpecHash": "N0XUq/j121v7G6o7jxMh5IfOyhh9MAvqyYo3RvTzLzWVhc+TTo2BOeNZfmY85+rlIK7JdU/1AS7HelZiUw9MdQ==",
   "success": true,
   "projectFilePath": "C:\\projelerim\\grantor-project\\Grantor\\Grantor.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,8 @@
     "C:\\Users\\AbdulKadir\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.6\\fluentvalidation.aspnetcore.10.3.6.nupkg.sha512",
     "C:\\Users\\AbdulKadir\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.6\\fluentvalidation.dependencyinjectionextensions.10.3.6.nupkg.sha512",
     "C:\\Users\\AbdulKadir\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\AbdulKadir\\.nuget\\packages\\jquery\\1.7.0\\jquery.1.7.0.nupkg.sha512",
+    "C:\\Users\\AbdulKadir\\.nuget\\packages\\jquery.datatables\\1.10.15\\jquery.datatables.1.10.15.nupkg.sha512",
     "C:\\Users\\AbdulKadir\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\AbdulKadir\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\AbdulKadir\\.nuget\\packages\\microsoft.aspnetcore.authentication.cookies\\2.2.0\\microsoft.aspnetcore.authentication.cookies.2.2.0.nupkg.sha512",
